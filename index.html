@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatización inteligente: el impacto de la IA en la gestión empresarial</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --azul-cientifica: #0B3C74;
+    --azul-profundo: #072A52;
+    --azul-claro: #E8F0F9;
+    --dorado: #C9A227;
+    --texto: #1C2630;
+    --texto-suave: #4A5A6A;
+    --borde: #D7E1EC;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: #F7F9FB;
+    color: var(--texto);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  .topbar{
+    background: var(--azul-cientifica);
+    color: #fff;
+    padding: 14px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size: 14px;
+    letter-spacing: .02em;
+  }
+  .topbar .marca{
+    font-weight:700;
+    font-size:15px;
+  }
+  .topbar .marca span{ color: var(--dorado); }
+
+  .hero{
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-cientifica) 60%, #124e8f 100%);
+    color: #fff;
+    padding: 56px 32px 0;
+    position: relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-80px; top:-80px;
+    width:280px; height:280px;
+    border-radius:50%;
+    background: rgba(201,162,39,0.14);
+  }
+  .hero-inner{
+    max-width: 960px;
+    margin: 0 auto;
+    position:relative;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 36px;
+    align-items:center;
+  }
+  .hero-texto{ padding-bottom: 48px; }
+  .eyebrow{
+    font-size:13px;
+    color: #BFD6EE;
+    margin-bottom:14px;
+    font-weight:500;
+  }
+  .hero h1{
+    font-family:'Source Serif 4', serif;
+    font-size: 32px;
+    line-height:1.25;
+    margin:0 0 18px;
+    font-weight:700;
+  }
+  .hero p.deck{
+    font-size:15.5px;
+    color:#D7E6F6;
+    margin:0;
+  }
+  .meta-row{
+    display:flex;
+    margin-top:28px;
+    flex-wrap:wrap;
+    font-size:13px;
+    color:#CBDEF2;
+  }
+  .meta-row div{ margin-right:28px; margin-bottom:6px; }
+  .meta-row div strong{ color:#fff; display:block; font-size:13px; margin-bottom:2px;}
+
+  .hero-ilustracion{
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    height: 100%;
+    position:relative;
+  }
+  .hero-ilustracion svg{
+    width: 100%;
+    max-width: 360px;
+    height:auto;
+    display:block;
+  }
+
+  @media (max-width: 760px){
+    .hero-inner{ grid-template-columns: 1fr; }
+    .hero-ilustracion{ display:none; }
+  }
+
+  .contenido{
+    max-width: 760px;
+    margin: -28px auto 0;
+    background:#fff;
+    padding: 44px 48px 52px;
+    border-radius: 6px;
+    box-shadow: 0 18px 40px -22px rgba(7,42,82,0.35);
+    position:relative;
+  }
+
+  .ficha{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 28px;
+    padding: 20px 22px;
+    background: var(--azul-claro);
+    border-left: 4px solid var(--azul-cientifica);
+    border-radius: 4px;
+    margin-bottom: 36px;
+    font-size: 13.5px;
+  }
+  .ficha .campo span{
+    display:block;
+    color: var(--texto-suave);
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin-bottom:3px;
+  }
+  .ficha .campo strong{
+    color: var(--azul-profundo);
+    font-weight:600;
+  }
+
+  h2.seccion{
+    font-family:'Source Serif 4', serif;
+    font-size: 21px;
+    color: var(--azul-profundo);
+    margin: 0 0 16px;
+    padding-bottom:10px;
+    border-bottom: 2px solid var(--borde);
+  }
+
+  p.cuerpo{
+    font-family:'Source Serif 4', serif;
+    font-size: 16.5px;
+    color: var(--texto);
+    text-align: justify;
+    margin: 0 0 14px;
+  }
+
+  .nota-critica{
+    margin-top: 28px;
+    padding: 18px 20px;
+    background: #FBF6E8;
+    border-left: 4px solid var(--dorado);
+    border-radius: 4px;
+    font-size: 14.5px;
+    color: #4A3F1E;
+  }
+  .nota-critica strong{ color:#8A6E10; }
+
+  .referencia{
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--borde);
+  }
+  .referencia span.label{
+    display:block;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color: var(--texto-suave);
+    margin-bottom:8px;
+  }
+  .referencia p{
+    font-size:14px;
+    color: var(--texto);
+    margin:0;
+  }
+  .referencia a{ color: var(--azul-cientifica); }
+
+  .firma{
+    max-width:760px;
+    margin: 28px auto 60px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding: 0 48px;
+  }
+  .avatar{
+    width:40px; height:40px;
+    border-radius:50%;
+    background: var(--azul-cientifica);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    font-size:15px;
+  }
+  .firma .nombre{ font-weight:600; font-size:14px; color: var(--texto); }
+  .firma .rol{ font-size:12.5px; color: var(--texto-suave); }
+
+  footer{
+    text-align:center;
+    font-size:12px;
+    color: var(--texto-suave);
+    padding: 20px 20px 40px;
+  }
+
+  @media (max-width: 640px){
+    .contenido{ padding: 32px 24px 40px; margin-top:-20px; }
+    .hero{ padding: 48px 20px 44px; }
+    .hero h1{ font-size: 28px; }
+    .ficha{ grid-template-columns: 1fr; }
+    .firma{ padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="marca">UNIVERSIDAD <span>CIENTÍFICA</span> DEL SUR</div>
+    <div>Comunicación y Redacción Científica · 2026-2</div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-texto">
+        <div class="eyebrow">Comentario crítico · Subtema 2 de 7</div>
+        <h1>Automatización inteligente: el impacto de la IA en la gestión y optimización de procesos empresariales</h1>
+        <p class="deck">Evaluación de la validez y confiabilidad de la fuente seleccionada para el arqueo bibliográfico grupal.</p>
+        <div class="meta-row">
+          <div><strong>Autor del comentario</strong>Sonny Del Valle Herrera</div>
+          <div><strong>Sección</strong>2G TEO</div>
+          <div><strong>Fecha</strong>Semana 4 · 2026</div>
+        </div>
+      </div>
+      <div class="hero-ilustracion">
+        <svg viewBox="0 0 340 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- escritorio -->
+          <rect x="30" y="250" width="280" height="14" rx="3" fill="#072A52"/>
+          <rect x="52" y="264" width="14" height="40" fill="#072A52"/>
+          <rect x="274" y="264" width="14" height="40" fill="#072A52"/>
+
+          <!-- monitor -->
+          <rect x="95" y="150" width="150" height="100" rx="6" fill="#0E4A8A" stroke="#BFD6EE" stroke-width="2"/>
+          <rect x="108" y="163" width="124" height="74" rx="3" fill="#0B2F5C"/>
+          <rect x="160" y="250" width="20" height="14" fill="#072A52"/>
+          <rect x="140" y="262" width="60" height="6" rx="3" fill="#072A52"/>
+
+          <!-- grafico en monitor -->
+          <polyline points="118,220 140,200 158,212 178,185 198,195 222,172" fill="none" stroke="#C9A227" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="222" cy="172" r="4" fill="#C9A227"/>
+          <rect x="118" y="228" width="16" height="6" fill="#2E6FB0"/>
+          <rect x="140" y="224" width="16" height="10" fill="#2E6FB0"/>
+          <rect x="162" y="226" width="16" height="8" fill="#2E6FB0"/>
+          <rect x="184" y="220" width="16" height="14" fill="#2E6FB0"/>
+
+          <!-- nodo IA flotante -->
+          <g transform="translate(228,70)">
+            <circle cx="0" cy="0" r="34" fill="#C9A227" opacity="0.15"/>
+            <circle cx="0" cy="0" r="22" fill="#C9A227"/>
+            <circle cx="-9" cy="-5" r="3.2" fill="#072A52"/>
+            <circle cx="9" cy="-5" r="3.2" fill="#072A52"/>
+            <path d="M -9 7 Q 0 13 9 7" stroke="#072A52" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <line x1="-22" y1="0" x2="-48" y2="-14" stroke="#BFD6EE" stroke-width="2"/>
+            <circle cx="-52" cy="-16" r="5" fill="#BFD6EE"/>
+            <line x1="22" y1="0" x2="48" y2="-10" stroke="#BFD6EE" stroke-width="2"/>
+            <circle cx="52" cy="-12" r="5" fill="#BFD6EE"/>
+            <line x1="0" y1="22" x2="0" y2="48" stroke="#BFD6EE" stroke-width="2"/>
+            <circle cx="0" cy="52" r="5" fill="#BFD6EE"/>
+          </g>
+
+          <!-- persona -->
+          <g transform="translate(50,170)">
+            <circle cx="0" cy="0" r="16" fill="#E8C78A"/>
+            <path d="M -16 2 a16 16 0 0 1 32 0 l0 6 l-32 0 z" fill="#0B3C74"/>
+            <path d="M -14 60 q -2 -42 14 -46 q 16 4 14 46 z" fill="#0E4A8A"/>
+            <rect x="-26" y="30" width="16" height="34" rx="7" fill="#0E4A8A"/>
+            <rect x="10" y="30" width="16" height="34" rx="7" fill="#0E4A8A"/>
+            <circle cx="-20" cy="66" r="6" fill="#E8C78A"/>
+            <circle cx="18" cy="66" r="6" fill="#E8C78A"/>
+          </g>
+
+          <!-- silla -->
+          <path d="M 20 258 q -6 -50 20 -56" stroke="#072A52" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <article class="contenido">
+
+    <div class="ficha">
+      <div class="campo"><span>Fuente analizada</span><strong>Automatización inteligente: el impacto de la IA en la gestión y optimización de procesos empresariales</strong></div>
+      <div class="campo"><span>Autora</span><strong>María Teodolinda Ortega Ovalle</strong></div>
+      <div class="campo"><span>Publicación</span><strong>LATAM Revista Latinoamericana de Ciencias Sociales y Humanidades</strong></div>
+      <div class="campo"><span>Año</span><strong>2026</strong></div>
+    </div>
+
+    <h2 class="seccion">Comentario crítico</h2>
+
+    <p class="cuerpo">En el presente comentario crítico se abordará la validez y la confiabilidad del artículo titulado <em>Automatización inteligente: el impacto de la IA en la gestión y optimización de procesos empresariales</em>, publicado en 2026. Su autora es María Teodolinda Ortega Ovalle, vinculada a la Universidad de Panamá y dedicada al análisis de tecnologías emergentes aplicadas al entorno organizacional. El artículo fue publicado en la <em>LATAM Revista Latinoamericana de Ciencias Sociales y Humanidades</em>, editada por REDILAT, una revista arbitrada de acceso abierto, indizada en repositorios científicos y con DOI asignado.</p>
+
+    <p class="cuerpo">Al haber sido publicada en 2026 y apoyarse en literatura reciente sobre automatización inteligente, ofrece una lectura actual de las exigencias digitales del entorno corporativo. Respecto a la metodología, la autora emplea una metodología teórica mixta que combina la revisión narrativa especializada, el análisis conceptual y la comparación estructurada de modelos. Al tratarse de un estudio teórico y no empírico, no trabaja con una muestra, de modo que sus conclusiones tienen alcance conceptual y conviene contrastarlas con evidencia de campo.</p>
+
+    <p class="cuerpo">En cuanto a las citas y referencias, el artículo incluye una bibliografía final sobre inteligencia artificial y automatización robótica de procesos; sin embargo, en el desarrollo no siempre se enlazan las afirmaciones con autores concretos, lo que dificulta rastrear el sustento de cada idea. Finalmente, la bibliografía consultada reúne fundamentos teóricos e indicadores de gestión que sustentan el análisis de la eficiencia corporativa.</p>
+
+    <div class="nota-critica">
+      <strong>Balance crítico:</strong> fuente confiable por su respaldo editorial (DOI, arbitraje, acceso abierto) y vigente por su fecha de publicación, pero con dos límites a considerar al citarla: carece de validación empírica y no siempre atribuye sus afirmaciones a autores concretos en el cuerpo del texto.
+    </div>
+
+    <div class="referencia">
+      <span class="label">Referencia bibliográfica (APA 7)</span>
+      <p>Ortega Ovalle, M. T. (2026). Automatización inteligente: el impacto de la IA en la gestión y optimización de procesos empresariales. <em>LATAM Revista Latinoamericana de Ciencias Sociales y Humanidades, 7</em>(2), 712–720. <a href="https://doi.org/10.56712/latam.v7i2.5579">https://doi.org/10.56712/latam.v7i2.5579</a></p>
+    </div>
+
+  </article>
+
+  <div class="firma">
+    <div class="avatar">SD</div>
+    <div>
+      <div class="nombre">Sonny Del Valle Herrera</div>
+      <div class="rol">Ingeniería de Software · Universidad Científica del Sur</div>
+    </div>
+  </div>
+
+  <footer>Guía de Autoaprendizaje 8 — Sesión 15 · Comunicación y Redacción Científica 2026-2</footer>
+
+</body>
+</html>
